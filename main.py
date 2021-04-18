@@ -24,6 +24,10 @@ def about():
 def blog():
     return render_template("blog.html")
 
+@app.route("/form")
+def form():
+    return render_template("form.html")
+
 
 
 
