@@ -1,4 +1,5 @@
 from flask import Flask, render_template
+import os
 #imports
 
 
@@ -20,13 +21,25 @@ def about():
     return render_template("about.html")
 
 
-@app.route("/blogs")
-def blog():
-    return render_template("blog.html")
 
 @app.route("/form")
 def form():
     return render_template("form.html")
+
+
+
+
+Photos = os.path.join('static', 'Photos')
+print(Photos)
+app.config['UPLOAD_FOLDER'] = Photos
+
+
+
+
+@app.route("/blogs")
+def blog():
+    Photo1 = os.path.join(app.config['UPLOAD_FOLDER'], 'mario.png')
+    return render_template("blog.html", user_image=Photo1)
 
 
 
