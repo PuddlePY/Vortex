@@ -20,6 +20,11 @@ def about():
     return render_template("about.html")
 
 
+@app.route("/blogs")
+def blog():
+    return render_template("blog.html")
+
+
 
 
 
