@@ -1,6 +1,10 @@
 from flask import Flask, render_template
 import os
+import time
 #imports
+
+
+
 
 
 
@@ -13,10 +17,9 @@ app = Flask(__name__)
 #app routes
 @app.route("/")
 def home():
-    return render_template("home.html")
+    return render_template("home.html",time)
 
-
-@app.route("/aboutus")
+@app.route("/about")
 def about():
     return render_template("about.html")
 
@@ -26,6 +29,10 @@ def about():
 def form():
     return render_template("form.html")
 
+
+@app.route("/podcasts")
+def podcasts():
+    return render_template("podcast.html")
 
 
 
@@ -47,7 +54,7 @@ def tc():
 
 
 
-    
+
 
 
 
