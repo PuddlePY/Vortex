@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, url_for
 import os
 import time
 #imports
@@ -15,11 +15,18 @@ app = Flask(__name__)
 
 
 #app routes
-@app.route("/")
-def home():
-    return render_template("home.html",time)
 
-@app.route("/about")
+#
+
+
+
+
+
+@app.route("/", methods=['GET', 'POST'])
+def home():
+    return render_template("home.html")
+
+@app.route("/aboutus")
 def about():
     return render_template("about.html")
 
@@ -50,6 +57,10 @@ def blog():
 @app.route("/tc")
 def tc():
     return render_template("tc.html")
+
+@app.route("/navi")
+def navi():
+    return render_template("navi.html")
 
 
 
