@@ -1,9 +1,18 @@
+{% extends "base.html" %}
+
 <html>
+    {% block content %}
+
+    <title>
+        Blogs (Vortex)
+    </title>
 
 
 
 
     <body>
+
+        
         <center>Blogs On BlogCast</center>
         <center><h3>image</h3><img src="{{ user_image }}" alt="Try Again" height="240px" width="200px"></center>
 
@@ -18,4 +27,6 @@
     </br>
     <h1>What we think you will like</h1>
     </body>
+    {% endblock %}
+
 </html>
