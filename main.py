@@ -63,6 +63,20 @@ def navi():
     return render_template("navi.html")
 
 
+@app.route("/polls")
+def poll():
+    return render_template("polls.html")
+
+
+@app.route("/forums")
+def forum():
+    return render_template("forums.html")
+
+
+@app.route("/profile")
+def pro():
+    return render_template("profile.html")
+
 
 
 
