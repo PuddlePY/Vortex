@@ -5,7 +5,7 @@
 <strong> Bold
 <img> Image
 <p> Paragraph 
-
+<h1> Creates a line of text
 
 
 <img src="{{url_for('static', filename='Hermes.png')}}" align="middle" />
