@@ -1,12 +1,6 @@
-<html>
-  <style>
-font-family: 'Trebuchet MS', sans-serif;
-font-size: 15px;
-text-align: left;
-color: white;
-background-color:"#5D555";
+{% block content %}
 
-  </style>
+<html>
 
     <body>
         <head>
@@ -16,6 +10,7 @@ background-color:"#5D555";
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
                 </button>
+                <img src="{{url_for('static', filename='vortex.png')}}" align="middle" />
               
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                   <ul class="navbar-nav mr-auto">
@@ -63,6 +58,7 @@ background-color:"#5D555";
         <link rel="stylesheet" href="temp.css">
         <title>{% block content %}{% endblock %}</title>
     </body>
+  </html>
+{% endblock %}
 
 
-</html>
