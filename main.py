@@ -1,11 +1,12 @@
-from flask import Flask, render_template, url_for
+from flask import Flask, render_template, url_for, request, redirect 
 import os
 import time
+import sqlite3
 #imports
 
 
 
-
+current = os.path.dirname(os.path.abspath(__file__))
 
 
 #flask app
@@ -17,6 +18,39 @@ app = Flask(__name__)
 #app routes
 
 #
+
+
+@app.route("/login", methods=['GET', 'POST'])
+def login():
+    UN = request.form["username"]
+    PW = request.form["password"]
+
+
+    sqlconnection = sqlite3.Connection(current + "/login.db")
+    cursor = sqlconnection.cursor()
+    quer1 = "SELECT username, Password from User WHERE Username = {un} AND Password = {pw}".formation(un = UN, pw = PW)
+    rows = cursor.execute(query1)
+    rows = rows.fetchall()
+    if len(rows) ==1:
+        return render_template("loggedin.html")
+    else:
+        return redirect("/register")
+
+
+@app.route("/register", methods=["GET", "POST"])
+def reg():
+    if request.method == "POST":
+        dUN = request.form["DUsername"]
+        dPW = request.form["Dpassword"]
+        Uemail = request.form["Emaluser"]
+        sqlconnection = sqlite3.Connection(current + "/login.db")
+        cursor = sqlconnection.cursor()
+        query1 = "INSERT INTO User VAULES('{u},'{p}','{a}')".format(u = dUN, p = dPW, e = Uemail )
+        cursor.execute(query1)
+        sqlconnect.commit()
+        return redirect("/")
+    return render_template("register.html")
+
 
 
 
